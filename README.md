@@ -15,7 +15,7 @@
 - **JavaScript Integration:** Includes a `script.js` file for dynamic functionalities such as the hamburger menu.
 
 ## Directory Structure
-
+```
 PDFtoWeb/
 │
 ├── books/
