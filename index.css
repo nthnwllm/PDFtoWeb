@@ -1,0 +1,112 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ff-primary: 'Poppins';
+}
+
+body {
+    padding: 6em 0 4em 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--ff-primary), sans-serif;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+header h1 {
+    font-size: 3em;
+    color: #333;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #777;
+}
+
+/* Card Grid Styles */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted card size */
+    gap: 2em;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card Styles */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 192px; /* Fixed card width */
+    height: 371.2px; /* Fixed card width */
+}
+
+.card img {
+    width: 100%;
+    height: 80%; /* Image height relative to the card */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-content {
+    padding: 0.7em;
+    text-align: center;
+    height: 20%; /* Content height relative to the card */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.card h2 {
+    font-size: 14px;
+    margin-bottom: 0.4em;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card p {
+    font-size: 11px;
+    color: #777;
+    margin: -0.4em;
+}
+
+/* Card Hover Effects */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    color: #777;
+    font-size: 0.9em;
+    user-select: none;  /* Prevents text selection */
+    pointer-events: none;  /* Prevents any interactions, like click or hover */
+}
