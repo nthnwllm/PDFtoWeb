@@ -5,15 +5,15 @@
 
 ## Overview
 
-**PDF to Web** is a Python project that transforms PDF documents into web-friendly HTML pages. This tool is particularly useful for converting eBooks and other large PDF files into a series of organized, navigable web pages. Each chapter of the PDF is converted into its own HTML page, complete with a chapter header, navigation buttons, and a collapsible side menu for easy access to other chapters.
+PDF to Web is a Python project that transforms PDF documents into web-friendly HTML pages. This tool is particularly useful for converting eBooks and other large PDF files into a series of organized, navigable web pages. Each chapter of the PDF is converted into its own HTML page, complete with a chapter header, navigation buttons, and a collapsible side menu for easy access to other chapters.
 
 ## Features
 
-- **Chapter-based Conversion:** Breaks down the PDF into chapters, each represented as a separate HTML page.
-- **Responsive Design:** Clean and mobile-friendly design using modern web technologies.
-- **Hamburger Navigation Menu:** Collapsible side menu for easy navigation between chapters.
-- **Header and Footer:** Each page includes a customizable header and footer with book details.
-- **JavaScript Integration:** Includes a `script.js` file for dynamic functionalities such as the hamburger menu.
+- Chapter-based Conversion: Breaks down the PDF into chapters, each represented as a separate HTML page.
+- Responsive Design: Clean and mobile-friendly design using modern web technologies.
+- Hamburger Navigation Menu: Collapsible side menu for easy navigation between chapters.
+- Header and Footer:** Each page includes a customizable header and footer with book details.
+- JavaScript Integration: Includes a `script.js` file for dynamic functionalities such as the hamburger menu.
 
 ## Directory Structure
 
@@ -99,10 +99,3 @@ Feel free to submit issues, fork the repository, and send pull requests. Contrib
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-### **Explanation:**
-
-- **Description:** The project description is concise, giving a clear overview of the project's purpose and key features.
-- **README:** The README provides a detailed guide for users and developers, covering installation, usage, customization, and contribution. It also includes a directory structure to help users navigate the project.
-
-Feel free to adjust the placeholders (like GitHub URL and contact information) to match your own details. This should give your project a professional and informative presentation on GitHub! Let me know if you need any more assistance.
