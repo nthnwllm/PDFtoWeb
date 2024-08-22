@@ -1,9 +1,3 @@
-### **Project Description**
-
-**PDF to Web**: A Python-based project that converts PDF documents into organized, web-friendly HTML pages. This tool is designed to facilitate easier reading and navigation of eBooks and other PDF files by breaking them into chapters with a clean, responsive design. The generated web pages include features such as a collapsible navigation menu, chapter headers, and seamless navigation between chapters.
-
----
-
 ### **README.md**
 
 ```markdown
