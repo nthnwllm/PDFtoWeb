@@ -1,19 +1,18 @@
 ### **README.md**
 
-```markdown
 # PDF to Web
 
 ## Overview
 
-PDF to Web is a Python project that transforms PDF documents into web-friendly HTML pages. This tool is particularly useful for converting eBooks and other large PDF files into a series of organized, navigable web pages. Each chapter of the PDF is converted into its own HTML page, complete with a chapter header, navigation buttons, and a collapsible side menu for easy access to other chapters.
+**PDF to Web** is a Python project that transforms PDF documents into web-friendly HTML pages. This tool is particularly useful for converting eBooks and other large PDF files into a series of organized, navigable web pages. Each chapter of the PDF is converted into its own HTML page, complete with a chapter header, navigation buttons, and a collapsible side menu for easy access to other chapters.
 
 ## Features
 
-- Chapter-based Conversion: Breaks down the PDF into chapters, each represented as a separate HTML page.
-- Responsive Design: Clean and mobile-friendly design using modern web technologies.
-- Hamburger Navigation Menu: Collapsible side menu for easy navigation between chapters.
-- Header and Footer:** Each page includes a customizable header and footer with book details.
-- JavaScript Integration: Includes a `script.js` file for dynamic functionalities such as the hamburger menu.
+- **Chapter-based Conversion:** Breaks down the PDF into chapters, each represented as a separate HTML page.
+- **Responsive Design:** Clean and mobile-friendly design using modern web technologies.
+- **Hamburger Navigation Menu:** Collapsible side menu for easy navigation between chapters.
+- **Header and Footer:** Each page includes a customizable header and footer with book details.
+- **JavaScript Integration:** Includes a `script.js` file for dynamic functionalities such as the hamburger menu.
 
 ## Directory Structure
 
