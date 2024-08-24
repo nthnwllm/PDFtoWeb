@@ -35,7 +35,7 @@ def convert_text_to_html(chapter_content, output_dir, chapter_num, total_chapter
     </button>
 
     <!-- Collapsible Sidebar Menu -->
-    <nav class="nav-mobile">
+    <nav class="nav-mobile" aria-hidden="true">
         <ul class="nav-mobile__list">
     """
 
@@ -57,19 +57,19 @@ def convert_text_to_html(chapter_content, output_dir, chapter_num, total_chapter
     # Add navigation buttons
     nav = soup.new_tag('div', **{'class': 'navigation'})
     if chapter_num > 1:
-        prev_link = soup.new_tag('a', href=f'chapter_{chapter_num - 1}.html', **{'class': 'prev'})
+        prev_link = soup.new_tag('a', href=f'chapter_{chapter_num - 1}.html', **{'class': 'prev', 'aria-hidden': 'true'})
         prev_link.string = "Previous"
         nav.append(prev_link)
 
     if chapter_num < total_chapters:
-        next_link = soup.new_tag('a', href=f'chapter_{chapter_num + 1}.html', **{'class': 'next'})
+        next_link = soup.new_tag('a', href=f'chapter_{chapter_num + 1}.html', **{'class': 'next', 'aria-hidden': 'true'})
         next_link.string = "Next"
         nav.append(next_link)
 
     body.append(nav)
 
     # Add footer with eBook details
-    footer = soup.new_tag('footer')
+    footer = soup.new_tag('footer', **{'aria-hidden': 'true'})
     footer.append(BeautifulSoup("<p>Author: Lee Strobel</p>", 'html.parser'))
     footer.append(BeautifulSoup("<p>Published: 1998</p>", 'html.parser'))
     footer.append(BeautifulSoup("<p>ISBN: 978-0310226469</p>", 'html.parser'))
@@ -95,6 +95,7 @@ def process_pdf_in_chunks(pdf_path, output_dir, pages_per_chapter):
     for start_page in range(0, total_pages, pages_per_chapter):
         chapter_content = []
         prev_block_bottom = 0
+        paragraph = ""
         chapter_num = (start_page // pages_per_chapter) + 1
         for page_num in range(start_page, min(start_page + pages_per_chapter, total_pages)):
             page = doc.load_page(page_num)
@@ -110,15 +111,27 @@ def process_pdf_in_chunks(pdf_path, output_dir, pages_per_chapter):
                         if text:
                             # Heading and paragraph detection
                             if span["size"] > 15 and span["flags"] == 20:  # Heading 1: Large & Bold
+                                if paragraph:
+                                    chapter_content.append(f"<p>{paragraph}</p>")
+                                    paragraph = ""
                                 chapter_content.append(f"<h1>{text}</h1>")
                             elif span["size"] > 12 and span["flags"] == 20:  # Heading 2: Medium & Bold
+                                if paragraph:
+                                    chapter_content.append(f"<p>{paragraph}</p>")
+                                    paragraph = ""
                                 chapter_content.append(f"<h2>{text}</h2>")
                             else:
-                                # Paragraph detection
+                                # If there's a significant vertical gap, start a new paragraph
                                 if len(chapter_content) > 0 and block["bbox"][1] - prev_block_bottom > 12:  # Example threshold
+                                    if paragraph:
+                                        chapter_content.append(f"<p>{paragraph}</p>")
                                     chapter_content.append("<br>")
-                                chapter_content.append(f"<p>{text}</p>")
+                                    paragraph = text
+                                else:
+                                    paragraph += " " + text
                                 prev_block_bottom = block["bbox"][3]
+        if paragraph:
+            chapter_content.append(f"<p>{paragraph}</p>")
 
         # Convert the collected content to HTML
         convert_text_to_html(chapter_content, output_dir, chapter_num, total_chapters)

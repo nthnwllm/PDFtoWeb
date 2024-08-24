@@ -10,7 +10,7 @@
 }
 
 body {
-    padding: 6em 0 4em 0;
+    padding: 6em 4em 4em 4em;
     background-color: #f4f4f4;
     color: #333;
     display: flex;
@@ -39,7 +39,7 @@ header p {
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted card size */
-    gap: 2em;
+    gap: 1.5em;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -55,8 +55,8 @@ header p {
     text-decoration: none;
     color: inherit;
     display: block;
-    width: 192px; /* Fixed card width */
-    height: 371.2px; /* Fixed card width */
+    width: 12rem;
+    height: 25rem;
 }
 
 .card img {

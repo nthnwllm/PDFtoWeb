@@ -1,47 +1,56 @@
 :root {
-    --ff-primary: 'Poppins';
+    --ff-primary: 'Poppins', sans-serif;
+    --clr-primary: #ff6600;
+    --clr-secondary: #3b3b3b;
+    --clr-accent: #ffb300;
+    --clr-bg: #f0e6d6;
 }
 
 html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
     height: 100%;
-}
-
-html {
-    display: table;
-    margin: auto;
+    font-family: var(--ff-primary);
+    background-color: #fff;
 }
 
 body {
-    padding: 8em 0 4em 0;
-    font-family: var(--ff-primary), sans-serif;
-    line-height: 1.6;
-    display: table-cell;
-    vertical-align: middle;
+    margin: 6em auto; /* Center the body horizontally */
+    padding: 3em 6em;
+    max-width: 68vw; /* Set a max-width for the body content */
+    line-height: 1.8;
+    font-size: 2rem !important;
+    color: var(--clr-secondary);
+    display: block; /* Ensure the body uses block-level formatting */
+    text-align: left; /* Keep text alignment as left */
 }
 
-h1, h2, h3 {
+br {
+    line-height: 1em; /* Adjust line-height to change spacing */
+}
+
+h1, h2, h3, p {
     margin: 0;
 }
 
 h1 {
-    margin: 2.5em 0 0 0;
+    font-size: 3rem;
+    margin: 3em 0 0 0;
 }
 
 h2 {
-    margin: 1.8em 0 0 0;
-}
-
-p {
-    margin: 0.2em;
+    font-size: 2.5rem;
+    margin: 2.5rem 0 0 0;
 }
 
 footer {
-    margin-top: 3em;
-    padding-top: 1em;
-    border-top: 1px solid #ddd;
+    margin: 5em 0 0 0;
+    padding: 2em 0 8em 0;
+    border-top: 0.15em solid #ddd;
     text-align: center;
     color: #777;
-    font-size: 0.9em;
+    font-size: 1rem;
     user-select: none;
     pointer-events: none;
 }
@@ -70,15 +79,15 @@ footer {
 
 /* Hamburger Menu Icon */
 .nav-toggle {
+    position: absolute;
     background: transparent;
     border: 0;
     cursor: pointer;
-    position: fixed;
-    top: 50px;
-    left: 50px;
+    top: 5rem;
+    left: 5rem;
     z-index: 1000;
-    width: 40px;
-    height: 40px;
+    width: 5rem;
+    height: 5rem;
     padding: 0;
     font-size: 0;
     line-height: 0;
@@ -90,8 +99,8 @@ footer {
 .hamburger {
     display: block;
     position: relative;
-    width: 24px;
-    height: 2px;
+    width: 3rem;
+    height: 5px;
     background: #5a5a5a;
     border-radius: 1em;
     transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -101,19 +110,19 @@ footer {
     content: '';
     position: absolute;
     width: 100%;
-    height: 2px;
+    height: 5px;
     background: #5a5a5a;
     border-radius: 1em;
     transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .hamburger::before {
-    top: -8px; /* Adjusted to ensure proper spacing */
+    top: -1rem; /* Adjusted to ensure proper spacing */
     transform: translateX(-12px);
 }
 
 .hamburger::after {
-    top: 8px; /* Adjusted to ensure proper spacing */
+    top: 1rem; /* Adjusted to ensure proper spacing */
     transform: translateX(-12px);
 }
 
@@ -124,7 +133,7 @@ footer {
     top: 0;
     bottom: 0;
     left: 0; /* Align to the left */
-    width: 250px;
+    width: 50%;
     background: #f0e6d6; /* Off-white/beige background */
     color: #5a5a5a; /* Darker/saturated text color */
     transform: translateX(-100%);
@@ -133,15 +142,13 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 20px;
     overflow-y: auto; /* Enable vertical scrolling */
-    max-height: 100vh; /* Ensure the sidebar doesn't exceed the viewport height */
 }
 
 .nav-mobile__list {
     list-style-type: none;
     padding: 0;
-    margin: 6.5em 0 3em 5em;
+    margin: 8rem 0 6rem 12rem;
 }
 
 .nav-mobile__item {
@@ -151,7 +158,7 @@ footer {
 .nav-mobile__link {
     color: #3b3b3b;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 1.8rem;
     font-weight: 600;
 }
 
@@ -170,16 +177,16 @@ footer {
 }
 
 .nav-open .hamburger::before {
-    transform: rotate(45deg) translate(5.8px, 5.8px); /* Slightly adjusted */
+    transform: rotate(45deg) translate(11px, 11px); /* Slightly adjusted */
 }
 
 .nav-open .hamburger::after {
-    transform: rotate(-45deg) translate(5.8px, -5.8px); /* Slightly adjusted */
+    transform: rotate(-45deg) translate(11px, -11px); /* Slightly adjusted */
 }
 
 /* Custom scrollbar for webkit browsers (Chrome, Safari) */
 .nav-mobile::-webkit-scrollbar {
-    width: 6px;
+    width: 20rem;
 }
 
 .nav-mobile::-webkit-scrollbar-track {
@@ -200,7 +207,6 @@ footer {
 .chapter-header {
     margin: 0 0 0.5em 0;
     color: #ff6600;
-    font-size: 2.8em;
+    font-size: 4rem;
     text-shadow: -4.2px 3.4px 1px #ffb300;
-
 }
