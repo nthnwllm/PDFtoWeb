@@ -16,9 +16,8 @@ html, body {
 }
 
 body {
-    margin: 6em auto; /* Center the body horizontally */
-    padding: 3em 6em;
-    max-width: 68vw; /* Set a max-width for the body content */
+    margin: auto; /* Center the body horizontally */
+    padding: 3em;
     line-height: 1.8;
     font-size: 2rem !important;
     color: var(--clr-secondary);
@@ -36,7 +35,7 @@ h1, h2, h3, p {
 
 h1 {
     font-size: 3rem;
-    margin: 3em 0 0 0;
+    margin: 3rem 0 0 0;
 }
 
 h2 {
@@ -45,14 +44,28 @@ h2 {
 }
 
 footer {
-    margin: 5em 0 0 0;
-    padding: 2em 0 8em 0;
-    border-top: 0.15em solid #ddd;
+    margin: 5rem 0 0 0;
+    padding: 2rem 0 8rem 0;
+    border-top: 0.15rem solid #ddd;
     text-align: center;
     color: #777;
     font-size: 1rem;
     user-select: none;
     pointer-events: none;
+}
+
+/* Header */
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 0 5em 0;
+}
+
+header a{
+    color: #555;
+    font-size: 4rem;
 }
 
 /* Navigation Menu */
@@ -66,10 +79,12 @@ footer {
 .navigation .prev, .navigation .next {
     background-color: #333;
     color: #fff;
-    padding: 10px 20px;
+    padding: 1.2rem 2.5rem;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: .25em;
     transition: background-color 0.12s, transform 0.12s;
+    justify-content: center;
+    font-size: 2.5rem;
 }
 
 .navigation .prev:hover, .navigation .next:hover {
@@ -83,7 +98,7 @@ footer {
     background: transparent;
     border: 0;
     cursor: pointer;
-    top: 5rem;
+    top: 5.7rem;
     left: 5rem;
     z-index: 1000;
     width: 5rem;
@@ -167,6 +182,10 @@ footer {
 }
 
 /* Sidebar Active State */
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
 .nav-open .nav-mobile {
     transform: translateX(0);
 }
@@ -177,11 +196,11 @@ footer {
 }
 
 .nav-open .hamburger::before {
-    transform: rotate(45deg) translate(11px, 11px); /* Slightly adjusted */
+    transform: rotate(45deg) translate(11.3px, 11.3px); /* Slightly adjusted */
 }
 
 .nav-open .hamburger::after {
-    transform: rotate(-45deg) translate(11px, -11px); /* Slightly adjusted */
+    transform: rotate(-45deg) translate(11.3px, -11.3px); /* Slightly adjusted */
 }
 
 /* Custom scrollbar for webkit browsers (Chrome, Safari) */

@@ -14,41 +14,50 @@ def convert_text_to_html(chapter_content, output_dir, chapter_num, total_chapter
     html.append(head)
     html.append(body)
 
-    # Add the CSS link
-    link = soup.new_tag('link', rel="stylesheet", href="../../style.css")
-    head.append(link)
-    link = soup.new_tag('link', rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap")
-    head.append(link)
+    # Add CSS and fonts
+    link_css = soup.new_tag('link', href='../../style.css', rel='stylesheet')
+    link_fonts = soup.new_tag('link', href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap', rel='stylesheet')
+    link_font_awesome = soup.new_tag('link', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css', rel='stylesheet', integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==", crossorigin="anonymous", referrerpolicy="no-referrer")
 
-    # Add the header with the chapter number using a special class
+    head.append(link_css)
+    head.append(link_fonts)
+    head.append(link_font_awesome)
+
+    # Add the header with the hamburger menu, sidebar, and home button
     header = soup.new_tag('header')
-    header_h1 = soup.new_tag('h1', **{'class': 'chapter-header'})
-    header_h1.string = f"Chapter {chapter_num}"
-    header.append(header_h1)
+
+    # Hamburger menu
+    nav_toggle = soup.new_tag('button', **{'aria-label': 'toggle navigation', 'class': 'nav-toggle'})
+    hamburger_span = soup.new_tag('span', **{'class': 'hamburger'})
+    nav_toggle.append(hamburger_span)
+    header.append(nav_toggle)
+
+    # Sidebar navigation menu
+    nav_mobile = soup.new_tag('nav', **{'class': 'nav-mobile', 'aria-hidden': 'true'})
+    nav_list = soup.new_tag('ul', **{'class': 'nav-mobile__list'})
+
+    for i in range(1, total_chapters + 1):
+        nav_item = soup.new_tag('li', **{'class': 'nav-mobile__item'})
+        nav_link = soup.new_tag('a', href=f'chapter_{i}.html', **{'class': 'nav-mobile__link'})
+        nav_link.string = f'Chapter {i}'
+        nav_item.append(nav_link)
+        nav_list.append(nav_item)
+
+    nav_mobile.append(nav_list)
+    header.append(nav_mobile)
+
+    # Home button
+    home_button = soup.new_tag('a', href='../../index.html', **{'class': 'logo'})
+    home_icon = soup.new_tag('i', **{'class': 'fa-solid fa-book'})
+    home_button.append(home_icon)
+    header.append(home_button)
+
     body.append(header)
 
-    # Add the hamburger menu
-    hamburger_html = """
-    <!-- Hamburger Menu Icon -->
-    <button class="nav-toggle" aria-label="toggle navigation">
-        <span class="hamburger"></span>
-    </button>
-
-    <!-- Collapsible Sidebar Menu -->
-    <nav class="nav-mobile" aria-hidden="true">
-        <ul class="nav-mobile__list">
-    """
-
-    # Add chapter links to the hamburger menu
-    for i in range(1, total_chapters + 1):
-        hamburger_html += f'<li class="nav-mobile__item"><a href="chapter_{i}.html" class="nav-mobile__link">Chapter {i}</a></li>'
-
-    hamburger_html += """
-        </ul>
-    </nav>
-    """
-
-    body.append(BeautifulSoup(hamburger_html, 'html.parser'))
+    # Add chapter header
+    chapter_header = soup.new_tag('h1', **{'class': 'chapter-header'})
+    chapter_header.string = f"Chapter {chapter_num}"
+    body.append(chapter_header)
 
     # Add the content to the body
     for content in chapter_content:
