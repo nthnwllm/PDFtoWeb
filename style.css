@@ -17,7 +17,7 @@ html, body {
 
 body {
     margin: auto; /* Center the body horizontally */
-    padding: 3em;
+    padding: 3em 1.7em;
     line-height: 1.8;
     font-size: 2rem !important;
     color: var(--clr-secondary);
@@ -60,7 +60,7 @@ header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 0 5em 0;
+    padding: 0 0 4em 0;
 }
 
 header a{
@@ -99,7 +99,7 @@ header a{
     border: 0;
     cursor: pointer;
     top: 5.7rem;
-    left: 5rem;
+    left: 3rem;
     z-index: 1000;
     width: 5rem;
     height: 5rem;

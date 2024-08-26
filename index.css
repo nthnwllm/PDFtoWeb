@@ -10,39 +10,44 @@
 }
 
 body {
-    padding: 6em 4em 4em 4em;
+    padding: 4em 2em;
     background-color: #f4f4f4;
     color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: var(--ff-primary), sans-serif;
+    width: 100vw;
+    justify-content: center;
 }
 
-/* Header Styles */
-header {
-    text-align: center;
-    margin-bottom: 2em;
+.title {
+    padding: 0 4em;
 }
 
-header h1 {
+.title h1 {
     font-size: 3em;
     color: #333;
+    line-height: 0.9em; /* Adjust the value as needed */
+    margin: 0 0 0.3em 0;
 }
 
-header p {
+.title p {
     font-size: 1.2em;
     color: #777;
+    line-height: 1em; /* Adjust the value as needed */
 }
 
 /* Card Grid Styles */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted card size */
-    gap: 1.5em;
+    row-gap: 3rem;
+    column-gap: 1.5rem;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 3em auto 1em;
+    justify-items: center;
 }
 
 /* Card Styles */
@@ -54,17 +59,22 @@ header p {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     text-decoration: none;
     color: inherit;
-    display: block;
-    width: 12rem;
-    height: 25rem;
+    display: flex;
+    flex-direction: column; /* Ensure proper alignment of content */
+    justify-content: space-between;
+    width: 90%;
+    max-width: 15rem;
+    height: auto;
+    max-height: 28rem;
 }
 
 .card img {
     width: 100%;
-    height: 80%; /* Image height relative to the card */
+    height: 24rem; /* Image height relative to the card */
     object-fit: cover; /* Ensures the image covers the area without stretching */
     display: block;
     transition: transform 0.3s ease-in-out;
+    aspect-ratio: 3 / 4; /* Ensures that all images have the same aspect ratio */
 }
 
 .card-content {

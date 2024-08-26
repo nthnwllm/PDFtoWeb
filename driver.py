@@ -146,7 +146,8 @@ def process_pdf_in_chunks(pdf_path, output_dir, pages_per_chapter):
         convert_text_to_html(chapter_content, output_dir, chapter_num, total_chapters)
 
 def main():
-    pdf_path = "D:/projects/python_projects/PDFtoWeb/the_case_for_christ.pdf"
+    # Change the PDF path according to what book you're trying to convert to Web form:
+    pdf_path = "D:/projects/python_projects/PDFtoWeb/the_case_for_christ.pdf" 
     output_dir = "D:/projects/python_projects/PDFtoWeb/books/the_case_for_christ"
     os.makedirs(output_dir, exist_ok=True)
 
